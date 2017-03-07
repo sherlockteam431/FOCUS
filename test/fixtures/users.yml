@@ -2,10 +2,12 @@
 
 one:
   id: 1
-  firstName: MyString
-  lastName: MyString
+  firstName: Test
+  lastName: One
+  userId: 0001
 
 two:
-  id: 1
-  firstName: MyString
-  lastName: MyString
+  id: 2
+  firstName: Test
+  lastName: Two
+  userId: 0002

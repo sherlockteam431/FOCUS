@@ -9,14 +9,10 @@ class UsersController < ApplicationController
     end
     
     def create(first, last)
-      #needs user id, last name, first name look at db
-      #random user id 
-      # first and last name
       uniqId = false
+      #check if client userId already exists. If it does generate another id
       while !uniqId do
         newUserId = Random.rand(9999)
-        puts newUserId
-        #check if client userId alreaady exists. If it does generate another
         check = User.where(["userId = ?", newUserId])
         if(check == nil || check == [])
           uniqId = true

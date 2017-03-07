@@ -8,7 +8,7 @@ class UsersController < ApplicationController
       return true
     end
     
-    def create
+    def create(first, last)
       #needs user id, last name, first name look at db
       #random user id 
       # first and last name
@@ -22,8 +22,6 @@ class UsersController < ApplicationController
           uniqId = true
         end
       end
-      first = "Jacob"
-      last  = "Stafford"
       @user = User.create!(firstName: first, lastName: last, userId: newUserId)
     end
     

@@ -14,7 +14,7 @@ class UsersControllerTest < ActionController::TestCase
    test "creating a new user should save to database and generate an id" do
       testFirstName = "testFirst"
       testLastName = "testLast"
-      @usersController.create
+      @usersController.create(testFirstName, testLastName)
       newUser = User.find_by(firstName: testFirstName, lastName: testLastName)
       assert (newUser != nil && newUser.userId != nil)
    end

@@ -1,0 +1,19 @@
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+
+<table>
+    <th>Event</th>
+    <th>Points</th>
+
+    <% @events.each do |event| %>
+        <tr>
+            <td><%= event.name %></td>
+            <td><%= event.points %></td>
+        </tr>
+    <% end %>
+</table>
+
+<%= text_field(:post, :title, size: 20, height: 50) %>

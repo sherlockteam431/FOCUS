@@ -4,6 +4,8 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :userId
       t.string :firstName
       t.string :lastName
+      t.string :numberOfEvents 
+      t.string :eventNames
 
       t.timestamps null: false
     end

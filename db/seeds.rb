@@ -5,3 +5,25 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+users = [
+        {:userId => '3', :firstName => 'Victor3', :lastName => 'Martinez', :created_at => '12:00', :updated_at => '1:00', :totalPoints => '97'},
+        {:userId => '0', :firstName => 'Victor', :lastName => 'Martinez', :created_at => '12:00', :updated_at => '1:00', :totalPoints => '100'},
+        {:userId => '1', :firstName => 'Victor1', :lastName => 'Martinez', :created_at => '12:00', :updated_at => '1:00', :totalPoints => '99'},
+        {:userId => '4', :firstName => 'Victor4', :lastName => 'Martinez', :created_at => '12:00', :updated_at => '1:00', :totalPoints => '96'},
+        {:userId => '2', :firstName => 'Victor2', :lastName => 'Martinez', :created_at => '12:00', :updated_at => '1:00', :totalPoints => '98'},
+    ]
+    
+users.each do |user|
+User.create!(user)
+
+end
+
+events = [{:name => 'Dummy 1', :points => '10'},
+          {:name => 'Dummy 2', :points => '20'},
+      ]
+      
+events.each do |event|
+  Event.create!(event)
+  
+end 

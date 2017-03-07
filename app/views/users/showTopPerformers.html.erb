@@ -1,0 +1,19 @@
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+
+<table>
+    <th>Ranking</th>
+    <th>Name</th>
+    <th>Total Points</th>
+
+    <% @users.each_with_index do |user, index| %>
+        <tr>
+            <td><%= index %></td>
+            <td><%= user.firstName %> <%= user.lastName %></td>
+            <td><%= user.totalPoints %></td>
+        </tr>
+    <% end %>
+</table>

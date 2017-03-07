@@ -1,4 +1,4 @@
-class ChangeFirstNameLastNameAndUSerIdColumnToNotBeNullable < ActiveRecord::Migration
+class ChangeFirstNameLastNameAndUserIdColumnToNotBeNullable < ActiveRecord::Migration
   def change
     change_column_null :users, :firstName, false
     change_column_null :users, :lastName, false

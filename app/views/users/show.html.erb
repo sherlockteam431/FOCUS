@@ -1,0 +1,24 @@
+<style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+
+<table>
+    <th></th>
+    <% @headings.each do |heading| %>
+        <th><%= heading %></th>
+    <% end %>
+
+    <% @users.each do |user| %>
+        <tr>
+            <td><%= link_to "Comments" %></td>
+            <td><%= user.userId %></td>
+            <td><%= user.firstName %></td>
+            <td><%= user.lastName %></td>
+            <td><%= user.created_at %></td>
+            <td><%= user.updated_at %></td>
+            <td><%= user.totalPoints %></td>
+        </tr>
+    <% end %>
+</table>

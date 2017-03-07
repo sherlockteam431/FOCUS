@@ -4,6 +4,10 @@ class UsersController < ApplicationController
 
     end
     
+    def testFunction
+      return true
+    end
+    
     def create
       #needs user id, last name, first name look at db
       #random user id 

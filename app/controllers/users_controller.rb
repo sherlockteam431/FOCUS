@@ -34,13 +34,8 @@ class UsersController < ApplicationController
     end
     
     def showStudentView
-<<<<<<< HEAD
-      @users = User.first
-      @events = Event.getEvents("Dummy 1,Dummy 2")
-=======
       @user = User.first #change this to use specific user
       @events = Event.getEventsbyName(@user.eventNames)
->>>>>>> c6eb57dc0cdd4dcba530d3b5f2928cb516cbcb99
     end
     
 end

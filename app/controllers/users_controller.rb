@@ -38,4 +38,4 @@ class UsersController < ApplicationController
       @events = Event.getEvents("Dummy 1,Dummy 2")
     end
     
-  end
+end

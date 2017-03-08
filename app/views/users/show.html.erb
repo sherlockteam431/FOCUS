@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <style>
 table, th, td {
     border: 1px solid black;
@@ -7,25 +6,23 @@ table, th, td {
 
 <table>
     <th></th>
-    <% @headings.each do |heading| %>
-        <th><%= heading %></th>
-    <% end %>
+    <th>Name</th>
+    <th>Total Points</th>
+     <% @events.each do |event| %>
+     <th><%= event.name %></th>
+     <% end %>
 
     <% @users.each do |user| %>
         <tr>
             <td><%= link_to "Comments" %></td>
-            <td><%= user.userId %></td>
-            <td><%= user.firstName %></td>
-            <td><%= user.lastName %></td>
-            <td><%= user.created_at %></td>
-            <td><%= user.updated_at %></td>
+            <td><%= user.firstName %> <%= user.lastName %></td>
             <td><%= user.totalPoints %></td>
+            <% @events.each do |event| %>
+            <td><%= user.attendedEvent(event.name, user.userId) %></td>
+            <% end %>
         </tr>
     <% end %>
 </table>
-=======
-<p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
->>>>>>> ec01671c2e558c4eeeec4ab89939cd679802c6ab
+
+

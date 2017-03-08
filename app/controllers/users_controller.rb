@@ -19,7 +19,7 @@ class UsersController < ApplicationController
           uniqId = true
         end
       end
-      @user = User.create!(firstName: first, lastName: last, userId: newUserId)
+      @users = User.create!(firstName: first, lastName: last, userId: newUserId)
     end
     
     def index
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     end
     
     def showStudentView
-      @user = User.first
+      @users = User.first
       @events = Event.getEvents("Dummy 1,Dummy 2")
     end
     

@@ -5,10 +5,6 @@ class UsersController < ApplicationController
       @users = User.new
     end
     
-    def testFunction
-      return true
-    end
-    
     def create(first, last)
       uniqId = false
       #check if client userId already exists. If it does generate another id
@@ -27,7 +23,7 @@ class UsersController < ApplicationController
     end
     
     def show
-      @headings = User.getHeadings
+      @events = Event.all
       @users = User.all
     end  
     
@@ -38,8 +34,13 @@ class UsersController < ApplicationController
     end
     
     def showStudentView
+<<<<<<< HEAD
       @users = User.first
       @events = Event.getEvents("Dummy 1,Dummy 2")
+=======
+      @user = User.first #change this to use specific user
+      @events = Event.getEventsbyName(@user.eventNames)
+>>>>>>> c6eb57dc0cdd4dcba530d3b5f2928cb516cbcb99
     end
     
-  end
+end

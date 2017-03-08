@@ -6,11 +6,6 @@ class UsersControllerTest < ActionController::TestCase
       @usersController = UsersController.new
    end
    
-   #test showing how to call a controller function
-   test "the truth" do
-      assert @usersController.testFunction
-   end
-   
    test "creating a new user should save to database and generate an id" do
       testFirstName = "testFirst"
       testLastName = "testLast"
@@ -44,5 +39,11 @@ class UsersControllerTest < ActionController::TestCase
       newUser = User.find_by(firstName: testFirstName, lastName: testLastName)
       assert newUser != nil && newUser.userId != nil
       assert newUser.totalPoints == 0
+   end
+   
+   test "attempting to create a user without a firt name should throw an error" do
+      testFirstName = "firstFail"
+      testLastName = "lastFail"
+      assert_raises(Exception) {@usersController.create(testFirstName)}
    end
 end

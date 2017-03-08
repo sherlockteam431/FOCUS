@@ -5,10 +5,6 @@ class UsersController < ApplicationController
       @users = User.new
     end
     
-    def testFunction
-      return true
-    end
-    
     def create(first, last)
       uniqId = false
       #check if client userId already exists. If it does generate another id

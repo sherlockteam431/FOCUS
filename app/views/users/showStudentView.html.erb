@@ -4,16 +4,27 @@ table, th, td {
 }
 </style>
 
-<table>
-    <th>Event</th>
-    <th>Points</th>
+<table style="border: 1px solid white;">
+    <tr style="border: 1px solid white;">
+        <td style="border: 1px solid white;"><table>
+            <th>Event</th>
+            <th>Points</th>
 
-    <% @events.each do |event| %>
-        <tr>
-            <td><%= event.name %></td>
-            <td><%= event.points %></td>
-        </tr>
-    <% end %>
+            <% @events.each do |event| %>
+            <tr>
+                <td><%= event.name %></td>
+                <td><%= event.points %></td>
+            </tr>
+            <% end %>
+                <td>Total Points</td>
+                <td><%= @user.totalPoints %></td>
+        </table></td>
+        
+        <td style="border: 1px solid white;"><%= form_tag do %>
+            <p><%= text_area_tag(:q, nil, size: "40x20") %></p>
+            <p><%= submit_tag("Add Comment") %>
+            <%= button_to 'View Comments' %>
+            </p>
+        <% end %></td>
+    </tr>
 </table>
-
-<%= text_field(:post, :title, size: 20, height: 50) %>

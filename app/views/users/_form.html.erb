@@ -1,3 +1,21 @@
+<style>
+.field{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+}
+</style>
+
+<style>
+.actions{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+}
+</style>
+
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -10,8 +28,20 @@
       </ul>
     </div>
   <% end %>
+  
+  <% if flash[:message] %>
+    <div class="notice"><%= flash[:message] %></div>
+  <% end %>
+  
+  <div class="field">
+    <%= f.text_field :firstName, :placeholder => "First name" %>
+  </div>
+  
+  <div class="field">
+    <%= f.text_field :lastName, :placeholder => "Last name" %>
+  </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Create Account'%>
   </div>
 <% end %>

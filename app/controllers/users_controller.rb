@@ -1,11 +1,24 @@
 class UsersController < ApplicationController
     
     def new
-      #needs user id, last name, first name look at db
+      #if empty names then return
+      if(params[:message])
+        flash[:message] = params[:message]
+        params[:message] = nil
+      end
       @user = User.new
     end
     
-    def create(first, last)
+    def create
+      
+      first = params[:user][:firstName]
+      last =  params[:user][:lastName]
+      if(first == "" || last == "")
+        flash[:message] = "All fields must be filled in." # if using flash messages
+        redirect_to :controller => "users", :action => :new
+        return
+      end
+      
       uniqId = false
       #check if client userId already exists. If it does generate another id
       while !uniqId do
@@ -16,6 +29,7 @@ class UsersController < ApplicationController
         end
       end
       @user = User.create!(firstName: first, lastName: last, userId: newUserId)
+      redirect_to :controller => "users", :action => :show
     end
     
     def index

@@ -8,6 +8,7 @@ table, th, td {
     <th></th>
     <th>Name</th>
     <th>Total Points</th>
+    <th>userId</th>
      <% @events.each do |event| %>
      <th><%= event.name %></th>
      <% end %>
@@ -17,6 +18,7 @@ table, th, td {
             <td><%= link_to "Comments" %></td>
             <td><%= user.firstName %> <%= user.lastName %></td>
             <td><%= user.totalPoints %></td>
+            <td><%= user.userId %></td>
             <% @events.each do |event| %>
             <td><%= user.attendedEvent(event.name, user.userId) %></td>
             <% end %>

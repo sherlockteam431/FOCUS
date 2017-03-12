@@ -2,7 +2,7 @@ class UsersController < ApplicationController
     
     def new
       #needs user id, last name, first name look at db
-      @users = User.new
+      @user = User.new
     end
     
     def create(first, last)
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
           uniqId = true
         end
       end
-      @users = User.create!(firstName: first, lastName: last, userId: newUserId)
+      @user = User.create!(firstName: first, lastName: last, userId: newUserId)
     end
     
     def index

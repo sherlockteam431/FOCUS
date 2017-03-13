@@ -44,12 +44,12 @@ class UsersController < ApplicationController
     def showTopPerformers
       @headings = User.getHeadings
       @rank = [1,2,3,4,5]
-      @users = User.order('totalPoints').reverse_order.first 3
+      @users = User.order('totalPoints').reverse_order.first 5
     end
     
     def showStudentView
       @user = User.first #change this to use specific user
-      @events = Event.getEventsbyName(@user.eventNames)
+      #@events = Event.getEventsbyName(@user.eventNames)
     end
     
 end

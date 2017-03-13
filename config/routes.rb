@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   
   get  '/signup',  to: 'users#new'
   get  '/users',   to: 'users#show'
-  
+  get  '/top',     to: 'users#showTopPerformers'
+  get  '/student', to: 'users#showStudentView'
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # The priority is based upon order of creation: first created -> highest priority.

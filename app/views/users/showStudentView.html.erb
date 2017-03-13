@@ -9,15 +9,7 @@ table, th, td {
         <td style="border: 1px solid white;"><table>
             <th>Event</th>
             <th>Points</th>
-
-            <% @events.each do |event| %>
-            <tr>
-                <td><%= event.name %></td>
-                <td><%= event.points %></td>
-            </tr>
-            <% end %>
-                <td>Total Points</td>
-                   </table></td>
+            
         
         <td style="border: 1px solid white;"><%= form_tag do %>
             <p><%= text_area_tag(:q, nil, size: "40x20") %></p>

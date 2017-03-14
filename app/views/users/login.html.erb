@@ -1,0 +1,44 @@
+<style>
+.field{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+}
+</style>
+
+<style>
+.actions{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+}
+</style>
+
+<style>
+.notice{
+    margin: auto;
+    width: 50%;
+    border: 3px solid black;
+    padding: 10px;
+    text-align: center;
+}
+</style>
+
+<h1>Login Page</h1>
+<% if flash[:alert] %>
+    <div class="notice"><%= flash[:alert] %></div>
+<% end %>
+
+<fieldset>
+    <div class="field">
+        <%= text_field_tag :id, params[:id], placeholder: 'Number ID' %>
+    </div>
+    <div class="actions">
+        <%= submit_tag 'Log In'%>
+    </div>
+    
+</fieldset>
+
+<%= link_to 'Back', home_path %>

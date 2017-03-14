@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
-  
+  get  '/home',    to: 'static_pages#home'
   get  '/help',    to: 'static_pages#help'
   get  '/about',   to: 'static_pages#about'
   get  '/contact', to: 'static_pages#contact'
@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get  '/users',   to: 'users#show'
   get  '/top',     to: 'users#showTopPerformers'
   get  '/student', to: 'users#showStudentView'
+  get  '/login',   to: 'users#login'
+  
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # The priority is based upon order of creation: first created -> highest priority.

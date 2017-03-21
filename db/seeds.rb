@@ -7,12 +7,12 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 users = [
-        {:userId => '0001', :firstName => 'Cody', :lastName => 'Leuschner', :totalPoints => '97', :eventNames => 'Dummy 1,Dummy 2'},
-        {:userId => '0002', :firstName => 'Nicholas', :lastName => 'Maxwell', :totalPoints => '97', :eventNames => 'Dummy 1,Dummy 2'},
-        {:userId => '0003', :firstName => 'Victor', :lastName => 'Martinez', :totalPoints => '97', :eventNames => 'Dummy 1,Dummy 2'},
-        {:userId => '0004', :firstName => 'Jacob', :lastName => 'Stafford', :totalPoints => '97', :eventNames => 'Dummy 1,Dummy 2'},
-        {:userId => '0005', :firstName => 'Josh', :lastName => 'Hooton', :totalPoints => '97', :eventNames => 'Dummy 1,Dummy 2'},
-        {:userId => '0006', :firstName => 'Jason', :lastName => 'Nguyen', :totalPoints => '97', :eventNames => 'Dummy 1,Dummy 2'},
+        {:userId => '0001', :firstName => 'Cody', :lastName => 'Leuschner', :totalPoints => '97'},
+        {:userId => '0002', :firstName => 'Nicholas', :lastName => 'Maxwell', :totalPoints => '97'},
+        {:userId => '0003', :firstName => 'Victor', :lastName => 'Martinez', :totalPoints => '97'},
+        {:userId => '0004', :firstName => 'Jacob', :lastName => 'Stafford', :totalPoints => '97'},
+        {:userId => '0005', :firstName => 'Josh', :lastName => 'Hooton', :totalPoints => '97'},
+        {:userId => '0006', :firstName => 'Jason', :lastName => 'Nguyen', :totalPoints => '97'},
     ]
     
 users.each do |user|

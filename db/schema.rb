@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170307025943) do
+ActiveRecord::Schema.define(version: 20170325184203) do
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20170307025943) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.integer  "totalPoints", default: 0
+    t.string   "role"
   end
 
 end

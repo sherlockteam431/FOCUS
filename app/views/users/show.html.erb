@@ -9,9 +9,9 @@ table, th, td {
     <th>Name</th>
     <th>Total Points</th>
     <th>userId</th>
-     <% @events.each do |event| %>
-     <th><%= event.name %></th>
-     <% end %>
+     <%#<% @events.each do |event| %>
+     <%#<th><%= event.name %><%#</th>%>
+     <%#<% end %>
 
     <% @users.each do |user| %>
         <tr>
@@ -20,7 +20,7 @@ table, th, td {
             <td><%= user.totalPoints %></td>
             <td><%= user.userId %></td>
             <% @events.each do |event| %>
-            <td><%= user.attendedEvent(event.name, user.userId) %></td>
+            <%#<td><%= user.attendedEvent(event.name, user.userId) %><%#</td>%>
             <% end %>
         </tr>
     <% end %>

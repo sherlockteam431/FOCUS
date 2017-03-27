@@ -9,7 +9,7 @@ class UsersControllerTest < ActionController::TestCase
    test "creating a new user should save to database and generate an id" do
       testFirstName = "testFirst"
       testLastName = "testLast"
-      @usersController.create(testFirstName, testLastName)
+      post :create, user: {firstName: testFirstName, lastName: testLastName}
       newUser = User.find_by(firstName: testFirstName, lastName: testLastName)
       assert (newUser != nil && newUser.userId != nil)
    end
@@ -17,7 +17,7 @@ class UsersControllerTest < ActionController::TestCase
    test "creating a new user should have a first name" do
       testFirstName = "firstExist"
       testLastName = "last"
-      @usersController.create(testFirstName, testLastName)
+      post :create, user: {firstName: testFirstName, lastName: testLastName}
       newUser = User.find_by(firstName: testFirstName, lastName: testLastName)
       assert newUser != nil && newUser.userId != nil
       assert newUser.firstName == testFirstName
@@ -26,7 +26,7 @@ class UsersControllerTest < ActionController::TestCase
    test "creating a new user should have a last name" do
       testFirstName = "first"
       testLastName = "lastExist"
-      @usersController.create(testFirstName, testLastName)
+      post :create, user: {firstName: testFirstName, lastName: testLastName}
       newUser = User.find_by(firstName: testFirstName, lastName: testLastName)
       assert newUser != nil && newUser.userId != nil
       assert newUser.lastName == testLastName
@@ -35,7 +35,7 @@ class UsersControllerTest < ActionController::TestCase
    test "creating a new user should set total points to 0" do
       testFirstName = "firstPoints"
       testLastName = "lastPoints"
-      @usersController.create(testFirstName, testLastName)
+      post :create, user: {firstName: testFirstName, lastName: testLastName}
       newUser = User.find_by(firstName: testFirstName, lastName: testLastName)
       assert newUser != nil && newUser.userId != nil
       assert newUser.totalPoints == 0
@@ -44,6 +44,6 @@ class UsersControllerTest < ActionController::TestCase
    test "attempting to create a user without a firt name should throw an error" do
       testFirstName = "firstFail"
       testLastName = "lastFail"
-      assert_raises(Exception) {@usersController.create(testFirstName)}
+      assert_raises(Exception) {post :create, user: {firstName: testFirstName}}
    end
 end

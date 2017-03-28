@@ -21,14 +21,12 @@ ActiveRecord::Schema.define(version: 20170325184203) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer  "userId",                     null: false
-    t.string   "firstName",                  null: false
-    t.string   "lastName",                   null: false
-    t.string   "numberOfEvents"
-    t.string   "eventNames"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.integer  "totalPoints",    default: 0
+    t.integer  "userId",                  null: false
+    t.string   "firstName",               null: false
+    t.string   "lastName",                null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "totalPoints", default: 0
     t.string   "role"
   end
 

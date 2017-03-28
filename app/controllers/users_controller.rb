@@ -25,7 +25,7 @@ class UsersController < ApplicationController
       #check if client userId already exists. If it does generate another id
       while !uniqId do
         newUserId = Random.rand(9999)
-        check = User.where(["userId = ?", newUserId])
+        check = User.where(userId: newUserId)
         if(check == nil || check == [])
           uniqId = true
         end

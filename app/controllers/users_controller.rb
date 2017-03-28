@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
     
+    @cUser = nil
+    
     def new
       #if empty names then return
       if(params[:message])
@@ -48,8 +50,24 @@ class UsersController < ApplicationController
     end
     
     def showStudentView
-      @user = User.first #change this to use specific user
+      @userName = session[:firstName] #User.first #change this to use specific user
       #@events = Event.getEventsbyName(@user.eventNames)
     end
     
+    def login
+      @id = params[:session]
+      if @id != nil
+        @user = User.find_by(id: @id[:id])
+        if (@user != nil)
+          p "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" +  @user.firstName
+          session[:firstName] = @user.firstName
+          redirect_to :controller => "users", :action => :showStudentView
+        end
+      else 
+        return
+      end
+    end
+    
+    def logout
+    end
 end

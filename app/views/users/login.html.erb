@@ -31,14 +31,21 @@
     <div class="notice"><%= flash[:alert] %></div>
 <% end %>
 
+
 <fieldset>
-    <div class="field">
-        <%= text_field_tag :id, params[:id], placeholder: 'Number ID' %>
-    </div>
-    <div class="actions">
-        <%= submit_tag 'Log In'%>
-    </div>
-    
+<div class="field">
+    <%= form_for(:session, url: login_path) do |f| %>
+    <%= f.label :Number_ID, "Number ID" %>
+</div>
+        
+<div class="field">
+     <%= f.password_field :id, class: 'field' %>
+</div>
+
+<div class="field">
+    <%= f.submit "Log in", :controller => "users", :action => :login %>
+</div>
+    <% end %>
 </fieldset>
 
 <%= link_to 'Back', home_path %>

@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get  '/top',     to: 'users#showTopPerformers'
   get  '/student', to: 'users#showStudentView'
   get  '/login',   to: 'users#login'
+  post  '/login',   to: 'users#login'
+  
   
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

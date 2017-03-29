@@ -7,13 +7,11 @@ table, th, td {
 <table>
     <th>Ranking</th>
     <th>Name</th>
-    <th>Total Points</th>
 
     <% @users.each_with_index do |user, index| %>
         <tr>
             <td><%= index %></td>
             <td><%= user.firstName %> <%= user.lastName %></td>
-            <td><%= user.totalPoints %></td><!--Remove this for final build-->
         </tr>
     <% end %>
 </table>

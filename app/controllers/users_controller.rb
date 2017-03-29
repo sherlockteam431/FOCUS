@@ -41,12 +41,6 @@ class UsersController < ApplicationController
     def show
       @events = Event.all
       @users = User.all
-    end  
-    
-    def showTopPerformers
-      @headings = User.getHeadings
-      @rank = [1,2,3,4,5]
-      @users = User.order('totalPoints').reverse_order.first 5
     end
     
     def showStudentView

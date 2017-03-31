@@ -27,4 +27,4 @@ events = [{:name => 'Dummy 1', :points => '10', :mentors => '0001, 0002, 0003', 
 events.each do |event|
   Event.create!(event)
   
-end 
+end AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')

@@ -1,30 +1,12 @@
-<style>
-table, th, td {
-    border: 1px solid black;
-}
-</style>
-
-<%= link_to "Sign up", signup_path, class: "btn btn-lg btn-link" %>
-
-<table>
-    <th></th>
-    <th>Name</th>
-    <th>userId</th>
-     <%#<% @events.each do |event| %>
-     <%#<th><%= event.name %><%#</th>%>
-     <%#<% end %>
-
-    <% @users.each do |user| %>
-        <tr>
-            <td><%= link_to "Comments" %></td>
-            <td><%= user.firstName %> <%= user.lastName %></td>
-            <td><%= user.userId %></td>
-            <% @events.each do |event| %>
-            <%#<td><%= user.attendedEvent(event.name, user.userId) %><%#</td>%>
-            <% end %>
-        </tr>
-    <% end %>
-</table>
-
-
+<% provide(:title, @user.firstName) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+    <h1>
+          <%= gravatar_for @user %>
+          <%= @user.firstName %> , <%= @user.userId%>
+    </h1>
+ </section>
+  </aside>
+</div>
 

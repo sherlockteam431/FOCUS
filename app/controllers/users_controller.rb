@@ -12,6 +12,15 @@ class UsersController < ApplicationController
     end
     
     def create
+      # @user = User.new(user_params)
+      # if @user.save
+      #   log_in @user
+      #   flash[:success] = "Welcome to the Sample App!"
+      #   redirect_to @user
+      # else
+      #   render 'new'
+      # end
+      
       
       first = params[:user][:firstName]
       last =  params[:user][:lastName]
@@ -31,8 +40,16 @@ class UsersController < ApplicationController
         end
       end
       @user = User.create!(firstName: first, lastName: last, userId: newUserId)
-      redirect_to :controller => "users", :action => :show
+      flash.now[:success] = "Welcome to SHERLOCK!"
+      redirect_to @user
     end
+    
+    # private
+
+    # def user_params
+    #   params.require(:user).permit(:firstName, :lastName, )
+    # end
+    
     
     def index
       @users = User.all
@@ -40,7 +57,8 @@ class UsersController < ApplicationController
     
     def show
       @events = Event.all
-      @users = User.all
+      @user = User.find(params[:id])
+
     end
     
     def showStudentView

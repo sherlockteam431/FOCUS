@@ -36,6 +36,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'web-console', '~> 2.0', group: :development
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
+gem 'cancan' # or cancancan
+gem 'draper'
+gem 'pundit'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,17 +1,21 @@
 <% provide(:title, 'Home') %>
 <style>
-  .admin{
-    underline: true;
+  .admin p{
+    font-size: 12px;
   }
+  
 </style>
-<div class="center jumbotron">
+<div class="center jumbotron" style = "padding: 20px;">
   <h1>SHERLOCK</h1>
 
   <h2>
     Welcome!
   </h2>
 
-    <%= link_to "Sign up", signup_path, class: "btn btn-lg btn-primary" %>
-    <%= link_to "Login", login_path, class: "btn btn-lg btn-primary" %>
-    
+  <%= link_to "Sign up", signup_path, class: "btn btn-lg btn-primary" %>
+  <%= link_to "Login", login_path, class: "btn btn-lg btn-primary" %>
+  <div class="admin">
+    <p>Admin user? <%= link_to "Admin Login", admin_root_path%></p>
+  </div>
 </div>
+

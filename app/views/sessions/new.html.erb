@@ -1,5 +1,21 @@
+<style>
+.notice{
+    margin: auto;
+    width: 50%;
+    border: 2px solid black;
+    padding: 10px;
+    text-align: center;
+    border-color: #ffa07a;
+}
+</style>
+
+
 <% provide(:title, "Log in") %>
 <h1>Log in</h1>
+
+<% if flash[:alert] %>
+    <div class="notice"><%= flash[:alert] %></div>
+<% end %>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -14,3 +30,5 @@
     <p>New user? <%= link_to "Sign up now!", signup_path %></p>
   </div>
 </div>
+
+<%= link_to 'Back', home_path %>

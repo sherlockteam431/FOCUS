@@ -18,7 +18,7 @@ class EventsController < ApplicationController
       type        = params[:event][:eventType]
       description = params[:event][:description]
       mentors     = params[:event][:mentors]
-      date        = params[:event][:date] 
+      date        = params[:event][:date]   
       
       
       @event = Event.create!(name: name, points: points, eventType: type, description: description, mentors: mentors, date: date)

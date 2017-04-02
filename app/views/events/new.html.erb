@@ -1,0 +1,17 @@
+<style>
+.notice{
+    margin: auto;
+    width: 50%;
+    border: 3px solid black;
+    padding: 10px;
+    text-align: center;
+}
+</style>
+
+<h1>Create Event</h1>
+<% if flash[:message] %>
+    <div class="notice"><%= flash[:message] %></div>
+<% end %>
+<%= render 'form' %>
+<%= link_to 'Back', home_path %>
+

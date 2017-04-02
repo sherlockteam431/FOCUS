@@ -1,0 +1,64 @@
+<style>
+.field{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+}
+</style>
+
+<style>
+.actions{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+}
+</style>
+
+<%= form_for(@event) do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+      <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= f.text_field :name, :placeholder => "Event name" %>
+  </div>
+  
+  <div class="field">
+    <%= f.number_field(:points, in: 0..20, step: 1, :placeholder => "Point amount") %>
+  </div>
+  
+  <div class="field">
+    <%= f.datetime_select(:date, :order => [:month, :day, :year, :hour, :minute], :prompt => true,  ampm: true, :default => Date.today) %>
+  </div>
+  
+  <div class="field", id="add_mentor">
+    <%= f.text_field :mentors, :placeholder => "Mentors" %>
+  </div>
+
+  
+  <div class="field">
+    <%= f.text_area :description, :rows => 6, placeholder: "Event description..." %>
+  </div>
+  
+    
+  <div class="field">
+    <p>Event Type</p>
+    <%= f.select(:eventType, [["Launch", 0], ["Casual",1], ["Other", 2]], :prompt => true)%>
+  </div>
+  
+
+  <div class="actions">
+    <%= f.submit 'Create Event'%>
+  </div>
+  
+  
+<% end %>

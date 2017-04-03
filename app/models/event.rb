@@ -1,4 +1,6 @@
 class Event < ActiveRecord::Base
+    belongs_to :users
+    
     def self.getEventsbyName(eventNames)
         events = []
         names = eventNames.split(",")

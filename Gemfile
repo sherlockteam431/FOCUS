@@ -43,7 +43,8 @@ gem 'pundit'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem 'cucumber'
+  gem 'cucumber-rails', :require => false # run tests with 'rake cucumber'
+  gem 'database_cleaner'
   gem 'rspec-rails'
   gem 'guard-rspec'
   

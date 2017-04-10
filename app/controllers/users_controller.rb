@@ -73,12 +73,22 @@ class UsersController < ApplicationController
         if (@user != nil)
           p "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" +  @user.firstName
           session[:firstName] = @user.firstName
-          redirect_to :controller => "users", :action => :showStudentView
+          redirect_to :controller => "users", :action => :show
         end
       else 
         return
       end
     end
+    
+    def attended_event?(eventName)
+      if @user.events == nil
+         return false
+      elsif @user.events.where(:name => "Dummy 1").exists?
+        return true
+      end
+      return false
+    end
+    helper_method :attended_event?
     
     def logout
     end

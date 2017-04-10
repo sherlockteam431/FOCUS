@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-    has_many :events
+    has_many :events, :foreign_key => :name
     
     def self.getHeadings
         return self.column_names.drop(1) #i dont want to show the id field

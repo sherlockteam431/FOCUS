@@ -41,7 +41,8 @@
   </div>
   
   <div class="field", id="add_mentor">
-    <%= f.text_field :mentors, :placeholder => "Mentors" %>
+    <!--Currently this just displays an empty text field that does nothing (originally f.text_field) -->
+    <%= text_field :mentors, :placeholder => "Mentors" %>
   </div>
 
   
@@ -57,7 +58,7 @@
   
 
   <div class="actions">
-    <%= f.submit 'Create Event'%>
+    <%= f.submit 'Update Event'%>
   </div>
   
   

@@ -20,8 +20,9 @@ User.create!(user)
 
 end
 
-events = [{:name => 'Dummy 1', :points => '10', :date => DateTime.new(2017, 3, 1, 12), :eventType => 'Other', :description => "This is a test"},
-          {:name => 'Dummy 2', :points => '20', :date => DateTime.new(2017, 3, 3, 12), :eventType => 'Other', :description => "This is only a test"},
+events = [
+        {:name => 'Event for Justice', :points => '10', :date => DateTime.new(2017, 3, 1, 12), :eventType => 'Networking', :description => "This is a test"},
+        {:name => 'Event for Reading', :points => '20', :date => DateTime.new(2017, 3, 3, 12), :eventType => 'Enrichment', :description => "This is only a test"},
       ]
       
 events.each do |event|

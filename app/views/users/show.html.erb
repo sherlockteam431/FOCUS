@@ -17,21 +17,15 @@
       vertical-align:middle;
     }
   </style>
-  <h1> Events</h1>
+  <h1> Events Attended</h1>
   <h3> Total Points</h3>
   <table class="event-table">
-      <th>Attended</th>
       <th>Name</th>
       <th>Points</th>
       <th>Date</th>
       <th>Type</th>
       <% @events.each do |e| %>
           <tr align="right">
-            <% if attended_event?(e.name) then %>
-              <td><%= image_tag "/assets/checkmark.jpg"%></td>
-            <% else %>
-              <td><%= image_tag "/assets/xmark.jpg"%></td>
-            <% end %>
             <td><%= e.name %></td>
             <td><%= e.points %></td>
             <td><%= e.date %></td>

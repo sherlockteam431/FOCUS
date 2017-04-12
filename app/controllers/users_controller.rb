@@ -12,15 +12,6 @@ class UsersController < ApplicationController
     end
     
     def create
-      # @user = User.new(user_params)
-      # if @user.save
-      #   log_in @user
-      #   flash[:success] = "Welcome to the Sample App!"
-      #   redirect_to @user
-      # else
-      #   render 'new'
-      # end
-      
       
       first = params[:user][:firstName]
       last =  params[:user][:lastName]
@@ -75,7 +66,7 @@ class UsersController < ApplicationController
           session[:firstName] = @user.firstName
           redirect_to :controller => "users", :action => :show
         end
-      else 
+      else
         return
       end
     end

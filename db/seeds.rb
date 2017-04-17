@@ -7,12 +7,12 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 users = [
-        {:userId => '0001', :firstName => 'Cody', :lastName => 'Leuschner'},
-        {:userId => '0002', :firstName => 'Nicholas', :lastName => 'Maxwell'},
-        {:userId => '0003', :firstName => 'Victor', :lastName => 'Martinez'},
-        {:userId => '0004', :firstName => 'Jacob', :lastName => 'Stafford'},
-        {:userId => '0005', :firstName => 'Josh', :lastName => 'Hooton'},
-        {:userId => '0006', :firstName => 'Jason', :lastName => 'Nguyen'},
+        {:userId => '0001', :firstName => 'Cody', :lastName => 'Leuschner', :organization => "TAMU FOCUS"},
+        {:userId => '0002', :firstName => 'Nicholas', :lastName => 'Maxwell', :organization => "TAMU FOCUS"},
+        {:userId => '0003', :firstName => 'Victor', :lastName => 'Martinez', :organization => "TAMU FOCUS"},
+        {:userId => '0004', :firstName => 'Jacob', :lastName => 'Stafford', :organization => "TAMU FOCUS"},
+        {:userId => '0005', :firstName => 'Josh', :lastName => 'Hooton', :organization => "TAMU FOCUS"},
+        {:userId => '0006', :firstName => 'Jason', :lastName => 'Nguyen', :organization => "TAMU FOCUS"},
     ]
     
 users.each do |user|
@@ -29,4 +29,4 @@ events.each do |event|
   Event.create!(event)
 end 
 
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password', organization: "TAMU FOCUS")

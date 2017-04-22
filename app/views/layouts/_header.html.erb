@@ -1,4 +1,4 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-fixed-top navbar-inverse" style="background-color: #800000;">
   <div class="container">
     <%= link_to @user.organization, current_user, id: "logo" if @user%>
     <%= link_to "TAMU FOCUS", root_path, id: "logo" if !@user%>
@@ -8,7 +8,7 @@
         <% if logged_in? %>
           <li><%= link_to "Log out", logout_path, method: "delete" %></li>
         <% else %>
-          <li><%= link_to "Log in", login_path %></li>
+          <li><%= link_to "Log in", login_path%></li>
         <% end %>
       </ul>
     </nav>

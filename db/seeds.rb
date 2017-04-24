@@ -29,4 +29,5 @@ events.each do |event|
   Event.create!(event)
 end 
 
+AdminUser.create!(email: 'pa-garza@tamu.edu', password: 'Password17', password_confirmation: 'Password17', organization: "TAMU FOCUS")
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password', organization: "TAMU FOCUS")

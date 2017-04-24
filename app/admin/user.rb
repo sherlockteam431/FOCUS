@@ -2,7 +2,7 @@ ActiveAdmin.register User do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-    permit_params :firstName, :lastName, :userId
+    permit_params :firstName, :lastName, :userId, :organization
     
     
     controller do
@@ -27,6 +27,7 @@ ActiveAdmin.register User do
         inputs 'details' do
             f.input :firstName
             f.input :lastName
+            f.input :organization
         end
         f.actions
     end

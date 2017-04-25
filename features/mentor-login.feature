@@ -7,3 +7,8 @@ Feature: Mentor login
     When I click the 'Mentor Login' button
     Then I should see the mentor login screen
   
+  Scenario: Logging in as a mentor
+    Given I am on the mentor login page
+    When I put in my ID number
+    Then I should be logged in
+  

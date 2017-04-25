@@ -45,6 +45,7 @@ group :development, :test do
   gem 'byebug'
   gem 'cucumber-rails', :require => false # run tests with 'rake cucumber'
   gem 'database_cleaner'
+  gem 'capybara'
   gem 'rspec-rails'
   gem 'guard-rspec'
   

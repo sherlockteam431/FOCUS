@@ -329,6 +329,7 @@ DEPENDENCIES
   bootstrap-will_paginate
   byebug
   cancan
+  capybara
   coffee-rails (~> 4.1.0)
   cucumber-rails
   database_cleaner

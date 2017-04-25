@@ -32,7 +32,7 @@ class UsersControllerTest < ActionController::TestCase
       assert newUser.lastName == testLastName
    end
    
-   test "attempting to create a user without a firt name should throw an error" do
+   test "attempting to create a user without a first name should throw an error" do
       testFirstName = "firstFail"
       testLastName = "lastFail"
       assert_raises(Exception) {post :create, user: {firstName: testFirstName}}

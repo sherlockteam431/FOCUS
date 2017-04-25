@@ -12,15 +12,6 @@ class UsersController < ApplicationController
     end
     
     def create
-      # @user = User.new(user_params)
-      # if @user.save
-      #   log_in @user
-      #   flash[:success] = "Welcome to the Sample App!"
-      #   redirect_to @user
-      # else
-      #   render 'new'
-      # end
-      
       
       first = params[:user][:firstName]
       last =  params[:user][:lastName]
@@ -50,36 +41,14 @@ class UsersController < ApplicationController
     #   params.require(:user).permit(:firstName, :lastName, )
     # end
     
-    
-    def index
-      @users = User.all
-    end
-    
     def show
-      @events = Event.all
-      @user = User.find(params[:id])
-
-    end
-    
-    def showStudentView
-      @userName = session[:firstName] #User.first #change this to use specific user
-      #@events = Event.getEventsbyName(@user.eventNames)
-    end
-    
-    def login
-      @id = params[:session]
-      if @id != nil
-        @user = User.find_by(id: @id[:id])
-        if (@user != nil)
-          p "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" +  @user.firstName
-          session[:firstName] = @user.firstName
-          redirect_to :controller => "users", :action => :showStudentView
-        end
+      if (session[:userId] == nil)
+        flash[:alert] = "You are not logged in";
+        redirect_to login_path
       else 
-        return
+        @user = User.find(session[:userId])
+        @events = @user.events
+        @points = @user.getPoints
       end
-    end
-    
-    def logout
     end
 end

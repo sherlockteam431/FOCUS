@@ -2,7 +2,7 @@
 
 Feature: Create new user
   
-  Scenario: Create a new user
-    Given I am an administrator
-    When 
-    
+  Scenario: User wants to create a mentor account
+      Given User is Admin
+      When User enters the mentor's name and presses create account
+      Then Mentor account with should be created with name firstname lastname

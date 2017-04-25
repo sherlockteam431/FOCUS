@@ -41,46 +41,14 @@ class UsersController < ApplicationController
     #   params.require(:user).permit(:firstName, :lastName, )
     # end
     
-    
-    def index
-      @users = User.all
-    end
-    
     def show
-      @events = Event.all
-      @user = User.find(params[:id])
-
-    end
-    
-    def showStudentView
-      @userName = session[:firstName] #User.first #change this to use specific user
-      #@events = Event.getEventsbyName(@user.eventNames)
-    end
-    
-    def login
-      @id = params[:session]
-      if @id != nil
-        @user = User.find_by(id: @id[:id])
-        if (@user != nil)
-          p "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" +  @user.firstName
-          session[:firstName] = @user.firstName
-          redirect_to :controller => "users", :action => :show
-        end
-      else
-        return
+      if (session[:userId] == nil)
+        flash[:alert] = "You are not logged in";
+        redirect_to login_path
+      else 
+        @user = User.find(session[:userId])
+        @events = @user.events
+        @points = @user.getPoints
       end
-    end
-    
-    def attended_event?(eventName)
-      if @user.events == nil
-         return false
-      elsif @user.events.where(:name => "Dummy 1").exists?
-        return true
-      end
-      return false
-    end
-    helper_method :attended_event?
-    
-    def logout
     end
 end

@@ -11,9 +11,8 @@ Rails.application.routes.draw do
   get  '/about',   to: 'static_pages#about'
   get  '/contact', to: 'static_pages#contact'
   
-  get  '/signup',  to: 'users#new'
-  get  '/top',     to: 'users#showTopPerformers'
-  get  '/student', to: 'users#showStudentView'
+  get  '/signup',     to: 'users#new'
+  get  '/user',       to: 'users#show'
   
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'

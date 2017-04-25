@@ -4,6 +4,26 @@
     font-size: 12px;
   }
   
+  a.btn {
+  -webkit-border-radius: 25;
+  -moz-border-radius: 25;
+  border-radius: 25px;
+  -webkit-box-shadow: 0px 0px 0px #666666;
+  -moz-box-shadow: 0px 0px 0px #666666;
+  box-shadow: 0px 0px 0px #666666;
+  color: #ffffff;
+  font-size: 20px;
+  background: #500000;
+  padding: 10px 40px 11px 40px;
+  text-decoration: none;
+}
+
+a.btn:hover {
+  background: #850c0c;
+  text-decoration: none;
+  color: #ffffff;
+}
+  
 </style>
 <div class="center jumbotron" style = "padding: 20px;">
   <h1>TAMU FOCUS</h1>
@@ -12,7 +32,7 @@
     Welcome!
   </h2>
 
-  <%= link_to "Admin Login", admin_root_path, class: "btn btn-lg btn-primary" %>
-  <%= link_to "Mentor Login", login_path, class: "btn btn-lg btn-primary" %>
+  <%= link_to "Admin Login", admin_root_path, class: "btn" %>
+  <%= link_to "Mentor Login", login_path, class: "btn" %>
 </div>
 

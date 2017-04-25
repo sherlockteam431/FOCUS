@@ -1,24 +1,24 @@
+<style>
+    .event-table td{
+      vertical-align:middle;
+    }
+</style>
+
 <% provide(:title, @user.firstName) %>
 
       <!-- HEADER /-->
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-    <h1>
-          <%= @user.firstName %> <%= @user.lastName %>
-    </h1>
+    <h1><%= @user.firstName %> <%= @user.lastName %></h1>
+    <h1>Organization: <%= @user.organization %></h1>
  </section>
   </aside>
 </div>
 
-      <!-- EVENt TABLE /-->
-  <style>
-    .event-table td{
-      vertical-align:middle;
-    }
-  </style>
+      <!-- Event TABLE /-->
   <h1> Events Attended</h1>
-  <h3> Total Points</h3>
+  <h3> Total Points: <%= @points %></h3>
   <table class="event-table">
       <th>Name</th>
       <th>Points</th>
@@ -33,3 +33,13 @@
           </tr>
       <% end %>
   </table>
+  
+  <!-- Comments /-->
+  <h1> Comments</h1>
+  <div>
+  <%= form_for @user do |f| %>
+    <div><%= f.text_field :comment, :readonly => true %></div>
+    <% end %>
+  </div>
+  
+  

@@ -31,6 +31,8 @@ ActiveAdmin.register User do
         end
         f.actions
     end
+    
+    
 # or
 #
 # permit_params do

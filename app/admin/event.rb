@@ -9,8 +9,8 @@ ActiveAdmin.register Event do
         column :points
         column :eventType
         column :date
-        column :users do |event|
-           event.users.map { |user| user.firstName + " " + user.lastName }.compact
+        column "Mentors Who Attended", :users do |event|
+           event.users.map { |user| user.firstName + " " + user.lastName }.to_s.delete("[]\"")
         end
         actions
     end

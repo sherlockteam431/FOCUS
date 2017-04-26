@@ -9,8 +9,10 @@ ActiveAdmin.register User do
         column :firstName
         column :lastName
         column :organization
-        column :events do |user|
-           user.events.map { |event| event.name  }.compact
+        column :hasComment
+        column :comment
+        column "Events Attended", :events do |user|
+           user.events.map { |event| event.name  }.to_s.delete("[]\"")
         end
         actions
     end

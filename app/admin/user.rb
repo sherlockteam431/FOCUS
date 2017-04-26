@@ -2,8 +2,20 @@ ActiveAdmin.register User do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-    permit_params :firstName, :lastName, :userId, :organization
+    permit_params :firstName, :lastName, :userId, :organization, event_ids: []
     
+    index do |users|
+        column :userId
+        column :firstName
+        column :lastName
+        column :organization
+        column :events do |user|
+           user.events.map { |event| event.name  }.compact
+        end
+        actions
+    end
+    
+    #filter :events_id_not_null, label: "", as: :boolean 
     
     controller do
         def create
@@ -23,15 +35,19 @@ ActiveAdmin.register User do
         end
     end
     
-    form title: "Create new user" do |f|
-        inputs 'details' do
+    form title: "Create New User" do |f|
+        inputs 'Create User' do
             f.input :firstName
             f.input :lastName
             f.input :organization
+            #f.input :events, :as => :select
+            f.input :events, :as => :select, :multiple => true, :input_html => { :class => :select3, :style => "width: 100%;" }
+
         end
         f.actions
     end
     
+
     
 # or
 #

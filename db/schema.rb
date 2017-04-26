@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170426034726) do
+ActiveRecord::Schema.define(version: 20170426154709) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -55,15 +55,17 @@ ActiveRecord::Schema.define(version: 20170426034726) do
     t.string   "eventType"
     t.string   "description"
     t.datetime "date"
-    t.integer  "user_id"
+    t.integer  "users"
   end
 
-  add_index "events", ["user_id"], name: "index_events_on_user_id"
+  add_index "events", ["users"], name: "index_events_on_users"
 
   create_table "events_users", id: false, force: :cascade do |t|
     t.integer "event_id", null: false
     t.integer "user_id",  null: false
   end
+
+  add_index "events_users", ["user_id", "event_id"], name: "index_events_users_on_user_id_and_event_id"
 
   create_table "users", force: :cascade do |t|
     t.integer  "userId",       null: false

@@ -21,7 +21,7 @@ User.create!(user)
 end
 
 events = [
-        {:name => 'Event for Justice', :points => '10', :date => DateTime.new(2017, 3, 1, 12), :eventType => 'Networking', :description => "This is a test"},
+        {:name => 'Event for Justice', :points => '10', :date => DateTime.new(2017, 2, 4, 17), :eventType => 'Networking', :description => "A longer description is required for testing that is why I am making a relatively longer description for this event!"},
         {:name => 'Event for Reading', :points => '20', :date => DateTime.new(2017, 3, 3, 12), :eventType => 'Enrichment', :description => "This is only a test"},
       ]
       

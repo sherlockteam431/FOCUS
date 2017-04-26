@@ -37,8 +37,9 @@
   <!-- Comments /-->
   <h1> Comments</h1>
   <div>
-  <%= form_for @user do |f| %>
-    <div><%= f.text_field :comment, :readonly => true %></div>
+    <%= form_for @user do |f| %>
+    <div><%= f.text_area :comment %></div>
+    <div><%= f.submit 'Send' %></div>
     <% end %>
   </div>
   

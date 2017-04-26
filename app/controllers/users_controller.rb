@@ -51,4 +51,12 @@ class UsersController < ApplicationController
         @points = @user.getPoints
       end
     end
+    
+    def message
+      user = User.find(session[:userId])
+      user.comment = params[:user][:comment]
+      user.hasComment = true
+      user.save
+      redirect_to user_path
+    end
 end

@@ -5,7 +5,8 @@ ActiveAdmin.register User do
     permit_params :firstName, :lastName, :userId, :organization, event_ids: []
     
     index do |users|
-        column :userId
+        selectable_column
+        id_column
         column :firstName
         column :lastName
         column :organization

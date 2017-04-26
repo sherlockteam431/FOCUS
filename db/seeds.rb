@@ -7,12 +7,12 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 users = [
-        {:userId => '0001', :firstName => 'Cody', :lastName => 'Leuschner', :organization => "TAMU FOCUS"},
-        {:userId => '0002', :firstName => 'Nicholas', :lastName => 'Maxwell', :organization => "TAMU FOCUS"},
-        {:userId => '0003', :firstName => 'Victor', :lastName => 'Martinez', :organization => "TAMU FOCUS"},
-        {:userId => '0004', :firstName => 'Jacob', :lastName => 'Stafford', :organization => "TAMU FOCUS"},
-        {:userId => '0005', :firstName => 'Josh', :lastName => 'Hooton', :organization => "TAMU FOCUS"},
-        {:userId => '0006', :firstName => 'Jason', :lastName => 'Nguyen', :organization => "TAMU FOCUS"},
+        {:userId => '1234', :firstName => 'Cody', :lastName => 'Leuschner', :organization => "TAMU FOCUS"},
+        {:userId => '5678', :firstName => 'Nicholas', :lastName => 'Maxwell', :organization => "TAMU FOCUS"},
+        {:userId => '9012', :firstName => 'Victor', :lastName => 'Martinez', :organization => "TAMU FOCUS"},
+        {:userId => '3456', :firstName => 'Jacob', :lastName => 'Stafford', :organization => "TAMU FOCUS"},
+        {:userId => '7890', :firstName => 'Josh', :lastName => 'Hooton', :organization => "TAMU FOCUS"},
+        {:userId => '1020', :firstName => 'Jason', :lastName => 'Nguyen', :organization => "TAMU FOCUS"},
     ]
     
 users.each do |user|

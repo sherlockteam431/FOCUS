@@ -42,18 +42,18 @@ class UsersController < ApplicationController
     # end
     
     def show
-      if (session[:userId] == nil)
+      if (session[:user_id] == nil)
         flash[:alert] = "You are not logged in";
         redirect_to login_path
       else 
-        @user = User.find(session[:userId])
+        @user = User.find(session[:user_id])
         @events = @user.events
         @points = @user.getPoints
       end
     end
     
     def message
-      user = User.find(session[:userId])
+      user = User.find(session[:user_id])
       user.comment = params[:user][:comment]
       user.hasComment = true
       user.save

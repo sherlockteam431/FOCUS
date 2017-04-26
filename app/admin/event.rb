@@ -5,6 +5,7 @@ ActiveAdmin.register Event do
   permit_params :name, :points, :eventType, :date, :description, user_ids: []
   
       index do
+        selectable_column
         column :name
         column :points
         column :eventType

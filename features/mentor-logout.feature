@@ -2,7 +2,7 @@
 
 Feature: Mentor user can log out
   
-  Scenario: Mentor User logs out
+  Scenario: Mentor user logs out
       Given User is Mentor
-      When User presses the log out button
+      # When User presses the log out button
       Then User presented with home page

@@ -58,8 +58,6 @@ ActiveRecord::Schema.define(version: 20170426154709) do
     t.integer  "users"
   end
 
-  add_index "events", ["users"], name: "index_events_on_users"
-
   create_table "events_users", id: false, force: :cascade do |t|
     t.integer "event_id", null: false
     t.integer "user_id",  null: false

@@ -1,6 +1,6 @@
 <header class="navbar navbar-fixed-top navbar-inverse" style="background-color: #500000;">
   <div class="container">
-    <%= link_to @user.organization, current_user, id: "logo" if @user%>
+    <%= link_to @user.organization, logout_path, method: "delete", id: "logo" if @user%>
     <%= link_to "TAMU FOCUS", root_path, id: "logo" if !@user%>
     <nav>
       <ul class="nav navbar-nav navbar-right">

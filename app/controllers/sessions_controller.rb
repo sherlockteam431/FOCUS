@@ -4,12 +4,12 @@ class SessionsController < ApplicationController
  
   def create
     user = User.find_by(userId: params[:session][:userId])
-    flash[:alert] = "hello";
+    # flash[:alert] = "hello";
     if user
       log_in user
       redirect_to user
     else
-    flash.now[:alert] = 'Invalid user id!'
+    flash.now[:alert] = 'Invalid user ID! Try again, or contact an admin for help.'
     render 'new'
     end
   end

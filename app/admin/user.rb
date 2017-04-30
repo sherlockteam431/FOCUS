@@ -2,11 +2,16 @@ ActiveAdmin.register User do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-    permit_params :firstName, :lastName, :userId, :organization, event_ids: []
+    permit_params :firstName, :lastName, :userId, :organization, :hasComment, :comment, event_ids: []
+    
+    filter :events, :collection => proc { Event.all }, :as => :select
+    filter :firstName
+    filter :lastName
+    filter :organization
     
     index do |users|
         selectable_column
-        id_column
+        column :userId
         column :firstName
         column :lastName
         column :organization
@@ -43,11 +48,24 @@ ActiveAdmin.register User do
             f.input :firstName
             f.input :lastName
             f.input :organization
-            #f.input :events, :as => :select
-            f.input :events, :as => :select, :multiple => true, :input_html => { :class => :select3, :style => "width: 100%;" }
-
+            f.input :hasComment, :label => "Has Comment?"
+            f.input :comment
+            f.input :events, :as => :check_boxes, :multiple => true
         end
         f.actions
+    end
+    
+    show do
+      attributes_table do
+        row :firstName
+        row :lastName
+        row :organization
+        row :hasComment
+        row :comment
+        row "Events Attended", :events do |user|
+           user.events.map { |event| event.name  }.to_s.delete("[]\"")
+        end
+      end
     end
     
 

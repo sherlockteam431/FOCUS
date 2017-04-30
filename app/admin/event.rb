@@ -4,24 +4,49 @@ ActiveAdmin.register Event do
 #
   permit_params :name, :points, :eventType, :date, :description, user_ids: []
   
-      index do
-        selectable_column
-        column :name
-        column :points
-        column :eventType
-        column :date
-        column "Mentors Who Attended", :users do |event|
-           event.users.map { |user| user.firstName + " " + user.lastName }.to_s.delete("[]\"")
-        end
-        actions
+  filter :name
+  filter :points
+  filter :eventType, :label => "Event Type"
+  
+
+  index do
+    selectable_column
+    column :name
+    column :points
+    column :eventType
+    column :date
+    column "Mentors Who Attended", :users do |event|
+       event.users.map { |user| user.firstName + " " + user.lastName }.to_s.delete("[]\"")
     end
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if params[:action] == 'create' && current_user.admin?
-#   permitted
-# end
+    actions
+  end
+  
+  form title: "Create New Event" do |f|
+      inputs 'Create Event' do
+          f.input :name
+          f.input :description
+          f.input :date, as: :datetime_picker
+          f.input :eventType, :label => "Event type"
+          #f.input :events, :as => :select
+          f.input :users, :as => :check_boxes, :multiple => true
+
+      end
+      f.actions
+  end
+  
+  show do
+    attributes_table do
+      row :name
+      row :points
+      row "Event Type", :eventType do  |event|
+        event.eventType
+      end
+      row :date
+      row "Mentors Who Attended", :users do |event|
+         event.users.map { |user| user.firstName + " " + user.lastName }.to_s.delete("[]\"")
+      end
+    end
+  end
+  
 
 end

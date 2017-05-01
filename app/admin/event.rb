@@ -5,7 +5,7 @@ ActiveAdmin.register Event do
   permit_params :name, :points, :eventType, :date, :description, user_ids: []
   
   filter :name
-  filter :points
+  filter :users, :collection => proc { User.all }, :as => :select
   filter :eventType, :label => "Event Type"
   
 
@@ -13,7 +13,9 @@ ActiveAdmin.register Event do
     selectable_column
     column :name
     column :points
-    column :eventType
+    column "Event Type", :eventType do  |event|
+      event.eventType
+    end
     column :date
     column "Mentors Who Attended", :users do |event|
        event.users.map { |user| user.firstName + " " + user.lastName }.to_s.delete("[]\"")
@@ -25,11 +27,10 @@ ActiveAdmin.register Event do
       inputs 'Create Event' do
           f.input :name
           f.input :description
+          f.input :points
           f.input :date, as: :datetime_picker
           f.input :eventType, :label => "Event type"
-          #f.input :events, :as => :select
           f.input :users, :as => :check_boxes, :multiple => true
-
       end
       f.actions
   end

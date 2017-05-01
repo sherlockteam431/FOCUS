@@ -47,7 +47,7 @@ ActiveAdmin.register User do
         inputs 'Create User' do
             f.input :firstName
             f.input :lastName
-            f.input :organization
+            f.input :organization, :as => :select, :multiple => false, :collection => ["IGNITE", "FOCUS"]
             f.input :hasComment, :label => "Has Comment?"
             f.input :comment
             f.input :events, :as => :check_boxes, :multiple => true

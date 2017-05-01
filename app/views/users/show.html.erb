@@ -1,7 +1,15 @@
 <style>
-    .event-table td{
-      vertical-align:middle;
-    }
+  .event-table td{
+    vertical-align:middle;
+  }
+
+  .notice{
+    margin: auto;
+    width: 50%;
+    border: 3px solid #9DC183 ;;
+    padding: 10px;
+    text-align: center;
+  }
 </style>
 
 <% provide(:title, @user.firstName) %>
@@ -37,10 +45,17 @@
   <!-- Comments /-->
   <h1> Comments</h1>
   <div>
-    <%= form_for @user do |f| %>
-    <div><%= f.text_area :comment %></div>
-    <div><%= f.submit 'Send' %></div>
+    
+    <% if flash[:success] %>
+        <div class="notice"><%= flash[:success] %></div>
+        <% flash[:success] == nil %>
     <% end %>
+    
+    <%= form_for @user do |f| %>
+    <div><%= f.text_area :comment, placeholder: "Type in a comment for anything that is incorrect above such as you attended an event not listed! Click update comment to update your comment. The old comment will be deleted!" %></div>
+    <div><%= f.submit 'Update Comment' %></div>
+    <% end %>
+    
   </div>
   
   

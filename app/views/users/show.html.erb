@@ -51,9 +51,9 @@
         <% flash[:success] == nil %>
     <% end %>
     
-    <%= form_for @user do |f| %>
-    <div><%= f.text_area :comment, placeholder: "Type in a comment for anything that is incorrect above such as you attended an event not listed! Click update comment to update your comment. The old comment will be deleted!" %></div>
-    <div><%= f.submit 'Update Comment' %></div>
+    <%= form_for @user, remote: true do |f| %>
+    <div><%= f.text_area :comment, placeholder: "Type in a comment for anything that is incorrect above such as you attended an event not listed! Click update comment to update your comment. The old comment will be deleted!"%></div>
+    <div id="button"><%= f.submit 'Update Comment' %></div>
     <% end %>
     
   </div>

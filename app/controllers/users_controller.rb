@@ -57,7 +57,10 @@ class UsersController < ApplicationController
       user.comment = params[:user][:comment]
       user.hasComment = true
       user.save
-      flash[:success] = "Message Updated!"
-      redirect_to user_path
+      respond_to do |format|
+        
+      format.html{redirect_to user_path}
+      format.js {render layout: false}
+    end
     end
 end

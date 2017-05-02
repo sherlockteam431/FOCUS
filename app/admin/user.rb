@@ -4,6 +4,15 @@ ActiveAdmin.register User do
 #
     permit_params :firstName, :lastName, :userId, :organization, :hasComment, :comment, event_ids: []
     
+    def getPoints
+        points = 0
+        events = self.events
+        events.each do |e|
+            points += e.points
+        end
+        return points
+    end
+    
     filter :events, :collection => proc { Event.all }, :as => :select
     filter :firstName
     filter :lastName
@@ -17,6 +26,9 @@ ActiveAdmin.register User do
         column :organization
         column :hasComment
         column :comment
+        column "Total Points", :event do |user|
+            user.events.inject(0){|sum,x| sum + x.points }
+        end
         column "Events Attended", :events do |user|
            user.events.map { |event| event.name  }.to_s.delete("[]\"")
         end
@@ -68,7 +80,7 @@ ActiveAdmin.register User do
       end
     end
     
-
+    
     
 # or
 #

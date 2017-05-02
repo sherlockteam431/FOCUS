@@ -1,8 +1,13 @@
 <header class="navbar navbar-fixed-top navbar-inverse" style="background-color: #500000;">
   <div class="container">
-    <%= link_to image_tag("focus_logo.jpg"), logout_path, method: "delete", id: "logo" if @user%>
-    <%= link_to image_tag("focus_logo.jpg"), root_path, id: "logo" if !@user%>
-    <nav>
+    <% if @user != nil and @user.organization == "FOCUS" %>
+      <%= link_to image_tag("focus_logo.jpg"), logout_path, method: "delete", id: "logo" if @user%>
+      <%= link_to image_tag("focus_logo.jpg"), root_path, id: "logo" if !@user%>
+    <% else %>
+      <%= link_to @user.organization, logout_path, method: "delete", id: "logo" if @user%>
+      <%= link_to image_tag("focus_logo.jpg"), root_path, id: "logo" if !@user%>
+    <% end %>
+        <nav>
       <ul class="nav navbar-nav navbar-right">
         
         <% if logged_in? %>

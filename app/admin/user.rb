@@ -77,8 +77,20 @@ ActiveAdmin.register User do
         row "Events Attended", :events do |user|
            user.events.map { |event| event.name  }.to_s.delete("[]\"")
         end
-      end
     end
+end
+    csv do
+        column :userId
+        column :firstName
+        column :lastName
+        column :organization
+        column :comment
+        column ("Total Points")  {|user|
+            user.events.inject(0){|sum,x| sum + x.points }}
+        column ("Events Attended") {|user|
+           user.events.map { |event| event.name  }.to_s.delete("[]\"")}
+    end
+    
     
     
     

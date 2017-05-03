@@ -49,5 +49,13 @@ ActiveAdmin.register Event do
     end
   end
   
+  csv do
+    column :name
+    column :points
+    column :eventType
+    column :date
+    column ("Mentors Who Attended") {|event| event.users.map{ |user| user.firstName + " " + user.lastName }.to_s.delete("[]\"")}
+  end
+  
 
 end
